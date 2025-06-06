@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+#weekly-schedule {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.card {
+    background-color: #1e1e1e;
+    border: 2px solid #9146FF;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.day {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #9146FF;
+}
+
+.time {
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+.game {
+    font-size: 0.95em;
+    color: #cccccc;
+}
