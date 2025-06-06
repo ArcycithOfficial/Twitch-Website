@@ -1,46 +1,115 @@
+/* Base Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-#weekly-schedule {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 15px;
-    width: 100%;
-    max-width: 1200px;
+.container {
+  max-width: 1600px;
+  padding: 40px 20px;
+  text-align: center;
 }
 
+.title {
+  font-size: 4rem;
+  margin-bottom: 60px;
+  color: #c701f8;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Schedule Grid */
+.schedule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* Card Styling */
 .card {
-    background-color: #1e1e1e;
-    border: 2px solid #9146FF;
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.2s ease;
+  background: #1e1e1e;
+  border: 2px solid #f8d0f6;
+  border-radius: 16px;
+  padding: 25px 20px;
+  width: 220px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .card:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00c3ff;
 }
 
-.day {
-    font-weight: bold;
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #9146FF;
+.card::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: conic-gradient(from 0deg, #ee1505, #128bfd, #fd124d, #0b4bfd, #fd124d);
+  animation: rotateBorder 4s linear infinite;
+  z-index: 0;
+  opacity: 0.2;
 }
 
-.time {
-    font-size: 1em;
-    margin-bottom: 5px;
+.card h2,
+.card p,
+.card span {
+  position: relative;
+  z-index: 1;
 }
 
-.game {
-    font-size: 0.95em;
-    color: #cccccc;
+.card h2 {
+  color: #c83dff;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+.card span {
+  color: #cccccc;
+  font-size: 1rem;
+}
+
+@keyframes rotateBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
 }
